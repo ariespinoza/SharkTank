@@ -97,3 +97,15 @@ InitTestScene*.unity*
 
 # Auto-generated scenes by play mode tests
 /[Aa]ssets/[Ii]nit[Tt]est[Ss]cene*.unity*
+
+
+# OS junk files
+.DS_Store
+Thumbs.db
+
+# Avoid package-lock conflicts
+/[Pp]ackages/packages-lock.json
+
+# Lightmap data (optional but recommended si trabajan varios)
+/Assets/**/Lightmap-*
+/Assets/**/LightingData.asset
