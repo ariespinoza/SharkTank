@@ -588,7 +588,7 @@ GameObject:
   - component: {fileID: 308843719}
   - component: {fileID: 308843718}
   m_Layer: 5
-  m_Name: Panel
+  m_Name: PanelMensaje
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -859,7 +859,7 @@ GameObject:
   - component: {fileID: 382262879}
   - component: {fileID: 382262878}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: CanvasMensaje
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1483,7 +1483,7 @@ GameObject:
   - component: {fileID: 753832310}
   - component: {fileID: 753832311}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: TextMensaje
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1503,10 +1503,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1415536844}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 736.8871, y: -20.11}
+  m_SizeDelta: {x: 1473.7742, y: 40.22}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &753832310
 CanvasRenderer:
@@ -2159,7 +2159,7 @@ GameObject:
   - component: {fileID: 1415536845}
   - component: {fileID: 1415536846}
   m_Layer: 5
-  m_Name: Content
+  m_Name: ContentMensaje
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
