@@ -103,47 +103,42 @@ public class ConversationDisplay : MonoBehaviour
 
         foreach (Message msg in data.conversation_history)
         {
+            
 
-            //Activar animaciones según cada rol
             string role = msg.role.ToLower();
 
+            // Activa animación con Trigger
             if (role.Contains("judge 1"))
-                judge1Animator.SetBool("IsTalking", true);
+                judge1Animator.SetTrigger("Talk");
 
             else if (role.Contains("judge 2"))
-                judge2Animator.SetBool("IsTalking", true);
+                judge2Animator.SetTrigger("Talk");
 
             else if (role.Contains("entrepreneur"))
-                entrepreneurAnimator.SetBool("IsTalking", true);
+                entrepreneurAnimator.SetTrigger("Talk");
+
 
             string speaker = $"<b>{msg.role}:</b>\n";
             yield return StartCoroutine(TypeText(speaker + msg.content + "\n\n"));
 
             // Espera antes de apagar animación
-            yield return new WaitForSeconds(1.5f);
+            yield return new WaitForSeconds(0.5f);
 
-            //Apagar animaciones
-            StopAllAnimations();
+
 
         }
+
+        
+
     }
 
-    void TriggerAnimationForRole(string role)
-    {
-        if (role == "Judge1")
-            judge1Animator.SetBool("IsTalking", true);
-        else if (role == "Judge2")
-            judge2Animator.SetBool("IsTalking", true);
-        else if (role == "Entrepreneur")
-            entrepreneurAnimator.SetBool("IsTalking", true);
-    }
 
-    void StopAllAnimations()
+    void ResetAllTriggers()
     {
-        judge1Animator.SetBool("IsTalking", false);
-        judge2Animator.SetBool("IsTalking", false);
-        entrepreneurAnimator.SetBool("IsTalking", false);
-    } 
+        judge1Animator.ResetTrigger("Talk");
+        judge2Animator.ResetTrigger("Talk");
+        entrepreneurAnimator.ResetTrigger("Talk");
+    }
 
     IEnumerator TypeText(string fullText)
     {
