@@ -6,10 +6,15 @@ using UnityEngine.UI;
 
 public class ConversationDisplay : MonoBehaviour
 {
-    public TextMeshProUGUI textUI; 
-    public ScrollRect scrollRect;  
+    public TextMeshProUGUI textUI;
+    public ScrollRect scrollRect;
+
+    public AudioSource audioSource;    
+    public AudioClip typeSound;    
 
     public string absoluteJsonPath = "/Users/milanguzman/Documents/5thSemester/MultiAgentes/FinalProyect/PythonConection/agents/conversation.json";
+
+    private ConversationRoot data;
 
     [System.Serializable]
     public class Message
@@ -41,20 +46,51 @@ public class ConversationDisplay : MonoBehaviour
 
     void Start()
     {
-        StartCoroutine(LoadAndDisplayConversation());
+        LoadJSON();
+        StartCoroutine(DisplayConversation());
     }
 
-    IEnumerator LoadAndDisplayConversation()
+    // ========================
+    //       LOAD JSON
+    // ========================
+    void LoadJSON()
     {
         if (!File.Exists(absoluteJsonPath))
         {
             textUI.text = "ERROR: Archivo JSON no encontrado\n" + absoluteJsonPath;
-            yield break;
+            return;
         }
 
         string json = File.ReadAllText(absoluteJsonPath);
-        ConversationRoot data = JsonUtility.FromJson<ConversationRoot>(json);
+        data = JsonUtility.FromJson<ConversationRoot>(json);
+    }
 
+    // ========================
+    //      CLEAR TEXT
+    // ========================
+    public void ClearConversation()
+    {
+        StopAllCoroutines();
+        textUI.text = "";
+        Canvas.ForceUpdateCanvases();
+        scrollRect.verticalNormalizedPosition = 1f; // subir al inicio
+    }
+
+    // ========================
+    //      RELOAD JSON
+    // ========================
+    public void ReloadConversation()
+    {
+        ClearConversation();
+        LoadJSON();
+        StartCoroutine(DisplayConversation());
+    }
+
+    // ========================
+    //    TYPEWRITER EFFECT
+    // ========================
+    IEnumerator DisplayConversation()
+    {
         textUI.text = "";
 
         foreach (Message msg in data.conversation_history)
@@ -66,11 +102,20 @@ public class ConversationDisplay : MonoBehaviour
 
     IEnumerator TypeText(string fullText)
     {
+        int soundFrequency = 0;
+
         foreach (char c in fullText)
         {
             textUI.text += c;
 
-            // Auto scroll
+            soundFrequency++;
+            if (soundFrequency >= 150) // sonido cada 2 letras
+            {
+                audioSource.PlayOneShot(typeSound);
+                soundFrequency = 0;
+            }
+
+            // Auto-scroll
             Canvas.ForceUpdateCanvases();
             scrollRect.verticalNormalizedPosition = 0f;
             Canvas.ForceUpdateCanvases();
@@ -78,10 +123,5 @@ public class ConversationDisplay : MonoBehaviour
             yield return new WaitForSeconds(0.01f);
         }
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
+
