@@ -11,8 +11,17 @@ public class ConversationDisplay : MonoBehaviour
 
     public AudioSource audioSource;    
     public AudioClip typeSound;    
+    public TextMeshProUGUI textUI; 
+    public ScrollRect scrollRect;
+    public Animator judge1Animator;
+    public Animator judge2Animator;
+    public Animator entrepreneurAnimator;
+  
 
-    public string absoluteJsonPath = "/Users/milanguzman/Documents/5thSemester/MultiAgentes/FinalProyect/PythonConection/agents/conversation.json";
+    //public string absoluteJsonPath = "/Users/milanguzman/Documents/5thSemester/MultiAgentes/FinalProyect/PythonConection/agents/conversation.json";
+    public string absoluteJsonPath = "C:\\Users\\aries\\OneDrive\\Desktop\\RetoSharkTank\\agents\\conversation.json";
+
+
 
     private ConversationRoot data;
 
@@ -95,10 +104,33 @@ public class ConversationDisplay : MonoBehaviour
 
         foreach (Message msg in data.conversation_history)
         {
+            //Activar animaciones según cada rol
+            TriggerAnimationForRole(msg.role);
+
             string speaker = $"<b>{msg.role}:</b>\n";
             yield return StartCoroutine(TypeText(speaker + msg.content + "\n\n"));
+
+            //Apagar animaciones
+            StopAllAnimations();
         }
     }
+
+    void TriggerAnimationForRole(string role)
+    {
+        if (role == "Judge1")
+            judge1Animator.SetBool("IsTalking", true);
+        else if (role == "Judge2")
+            judge2Animator.SetBool("IsTalking", true);
+        else if (role == "Entrepreneur")
+            entrepreneurAnimator.SetBool("IsTalking", true);
+    }
+
+    void StopAllAnimations()
+    {
+        judge1Animator.SetBool("IsTalking", false);
+        judge2Animator.SetBool("IsTalking", false);
+        entrepreneurAnimator.SetBool("IsTalking", false);
+    } 
 
     IEnumerator TypeText(string fullText)
     {
