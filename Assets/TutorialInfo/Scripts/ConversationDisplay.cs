@@ -103,19 +103,18 @@ public class ConversationDisplay : MonoBehaviour
 
         foreach (Message msg in data.conversation_history)
         {
-            
+            StopAllAnimations();
 
             string role = msg.role.ToLower();
 
-            // Activa animación con Trigger
             if (role.Contains("judge 1"))
-                judge1Animator.SetTrigger("Talk");
+                judge1Animator.SetBool("IsTalking", true);
 
             else if (role.Contains("judge 2"))
-                judge2Animator.SetTrigger("Talk");
+                judge2Animator.SetBool("IsTalking", true);
 
             else if (role.Contains("entrepreneur"))
-                entrepreneurAnimator.SetTrigger("Talk");
+                entrepreneurAnimator.SetBool("IsTalking", true);
 
 
             string speaker = $"<b>{msg.role}:</b>\n";
@@ -124,12 +123,19 @@ public class ConversationDisplay : MonoBehaviour
             // Espera antes de apagar animación
             yield return new WaitForSeconds(0.5f);
 
-
+            StopAllAnimations();
 
         }
 
-        
+        StopAllAnimations();
 
+    }
+
+    void StopAllAnimations()
+    {
+        judge1Animator.SetBool("IsTalking", false);
+        judge2Animator.SetBool("IsTalking", false);
+        entrepreneurAnimator.SetBool("IsTalking", false);
     }
 
 
