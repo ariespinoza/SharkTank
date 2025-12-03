@@ -499,6 +499,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ConversationDisplay
   textUI: {fileID: 753832311}
   scrollRect: {fileID: 2064410217}
+  judge1Animator: {fileID: 1728189529}
+  judge2Animator: {fileID: 1378026615}
+  entrepreneurAnimator: {fileID: 885635717}
   absoluteJsonPath: /Users/milanguzman/Documents/5thSemester/MultiAgentes/FinalProyect/PythonConection/agents/conversation.json
 --- !u!4 &248493393
 Transform:
@@ -1503,10 +1506,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1415536844}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 736.8871, y: -20.11}
-  m_SizeDelta: {x: 1473.7742, y: 40.22}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &753832310
 CanvasRenderer:
@@ -1881,6 +1884,33 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 809563dc332f70e49b13dbbb71afec61, type: 3}
+--- !u!1 &885635716 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 30483b7d9c405f246ba64a97ea8ba628, type: 3}
+  m_PrefabInstance: {fileID: 1290982836}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &885635717
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 885635716}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 79e978a51eb5e4140995e275fc0fa5de, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &1076434553
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1891,15 +1921,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 32de0c6f69663504e9789f6e7e82804d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.01
+      value: 3.985
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 32de0c6f69663504e9789f6e7e82804d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.1
+      value: -0.021
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 32de0c6f69663504e9789f6e7e82804d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 6.16
+      value: 5.627
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 32de0c6f69663504e9789f6e7e82804d, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1931,12 +1961,75 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 32de0c6f69663504e9789f6e7e82804d, type: 3}
       propertyPath: m_Name
-      value: SkelMesh_Bodyguard_01@Talking
+      value: Judge1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 32de0c6f69663504e9789f6e7e82804d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1728189529}
+  m_SourcePrefab: {fileID: 100100000, guid: 32de0c6f69663504e9789f6e7e82804d, type: 3}
+--- !u!1001 &1081602700
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 32de0c6f69663504e9789f6e7e82804d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 7.839
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 32de0c6f69663504e9789f6e7e82804d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.012
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 32de0c6f69663504e9789f6e7e82804d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 5.523
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 32de0c6f69663504e9789f6e7e82804d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.92387944
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 32de0c6f69663504e9789f6e7e82804d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 32de0c6f69663504e9789f6e7e82804d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.3826836
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 32de0c6f69663504e9789f6e7e82804d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 32de0c6f69663504e9789f6e7e82804d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 32de0c6f69663504e9789f6e7e82804d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 315
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 32de0c6f69663504e9789f6e7e82804d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 32de0c6f69663504e9789f6e7e82804d, type: 3}
+      propertyPath: m_Name
+      value: Judge2
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 32de0c6f69663504e9789f6e7e82804d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1378026615}
   m_SourcePrefab: {fileID: 100100000, guid: 32de0c6f69663504e9789f6e7e82804d, type: 3}
 --- !u!1001 &1136069360
 PrefabInstance:
@@ -2100,7 +2193,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 30483b7d9c405f246ba64a97ea8ba628, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 6.541
+      value: 5.935
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 30483b7d9c405f246ba64a97ea8ba628, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2108,7 +2201,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 30483b7d9c405f246ba64a97ea8ba628, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 8.243
+      value: 8.46
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 30483b7d9c405f246ba64a97ea8ba628, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2140,13 +2233,43 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 30483b7d9c405f246ba64a97ea8ba628, type: 3}
       propertyPath: m_Name
-      value: SkelMesh_Bodyguard_03@Talking
+      value: Entrepreneur
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 30483b7d9c405f246ba64a97ea8ba628, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 885635717}
   m_SourcePrefab: {fileID: 100100000, guid: 30483b7d9c405f246ba64a97ea8ba628, type: 3}
+--- !u!1 &1378026614 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 32de0c6f69663504e9789f6e7e82804d, type: 3}
+  m_PrefabInstance: {fileID: 1081602700}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1378026615
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1378026614}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 7f7a07582e5c8f04ca030bdd98a17380, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1415536843
 GameObject:
   m_ObjectHideFlags: 0
@@ -2453,6 +2576,33 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: abc00000000001098851031487966933, type: 3}
+--- !u!1 &1728189528 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 32de0c6f69663504e9789f6e7e82804d, type: 3}
+  m_PrefabInstance: {fileID: 1076434553}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1728189529
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1728189528}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 928e1cca72eb8e6409a23727c4cb2e63, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &1755215480
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2873,6 +3023,7 @@ SceneRoots:
   - {fileID: 613236338}
   - {fileID: 763081178}
   - {fileID: 1076434553}
+  - {fileID: 1081602700}
   - {fileID: 1290982836}
   - {fileID: 1274710774}
   - {fileID: 382262881}
