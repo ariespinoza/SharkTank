@@ -11,8 +11,7 @@ public class ConversationDisplay : MonoBehaviour
 
     public AudioSource audioSource;    
     public AudioClip typeSound;    
-    public TextMeshProUGUI textUI; 
-    public ScrollRect scrollRect;
+  
     public Animator judge1Animator;
     public Animator judge2Animator;
     public Animator entrepreneurAnimator;
@@ -104,14 +103,28 @@ public class ConversationDisplay : MonoBehaviour
 
         foreach (Message msg in data.conversation_history)
         {
+
             //Activar animaciones según cada rol
-            TriggerAnimationForRole(msg.role);
+            string role = msg.role.ToLower();
+
+            if (role.Contains("judge 1"))
+                judge1Animator.SetBool("IsTalking", true);
+
+            else if (role.Contains("judge 2"))
+                judge2Animator.SetBool("IsTalking", true);
+
+            else if (role.Contains("entrepreneur"))
+                entrepreneurAnimator.SetBool("IsTalking", true);
 
             string speaker = $"<b>{msg.role}:</b>\n";
             yield return StartCoroutine(TypeText(speaker + msg.content + "\n\n"));
 
+            // Espera antes de apagar animación
+            yield return new WaitForSeconds(1.5f);
+
             //Apagar animaciones
             StopAllAnimations();
+
         }
     }
 
@@ -153,6 +166,7 @@ public class ConversationDisplay : MonoBehaviour
             Canvas.ForceUpdateCanvases();
 
             yield return new WaitForSeconds(0.01f);
+
         }
     }
 }
